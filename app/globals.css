@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cp-vh: 100dvh;
+  --cp-safe-top: env(safe-area-inset-top, 0px);
+  --cp-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --cp-background: #f8fafc;
+  --cp-foreground: #1f2937;
+  --cp-surface: #ffffff;
+  --cp-surface-alt: #fff5f9;
+  --cp-surface-full: #fff5f9;
+  --cp-accent: #f472b6;
+  --cp-accent-soft: rgba(236, 72, 153, 0.1);
+  --cp-accent-soft-2: rgba(236, 72, 153, 0.06);
+  --cp-border: #f3e8ee;
+  --cp-divider: #e5e7eb;
+  --cp-input: #ffffff;
+  --cp-muted: #6b7280;
+  --cp-muted-light: #9ca3af;
+  --cp-on-accent: #ffffff;
+  --cp-available: #16a34a;
+  --cp-available-soft: rgba(34, 197, 94, 0.12);
+  --cp-success: #ec4899;
+  --cp-success-soft: rgba(236, 72, 153, 0.12);
+  --cp-warning: #f472b6;
+  --cp-warning-soft: rgba(244, 114, 182, 0.14);
+  --cp-danger: #ef4444;
+  --cp-danger-soft: rgba(253, 237, 237, 0.9);
+  --cp-info: #ec4899;
+  --cp-info-soft: rgba(236, 72, 153, 0.12);
+  --cp-session-stable: #15803d;
+  --cp-session-stable-soft: rgba(22, 163, 74, 0.14);
+  --cp-session-warning: #ea580c;
+  --cp-session-warning-soft: rgba(249, 115, 22, 0.14);
+  --cp-session-danger: #dc2626;
+  --cp-session-danger-soft: rgba(254, 226, 226, 0.92);
+  --cp-shadow-base: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", Roboto, "Segoe UI",
+    system-ui, sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(244, 114, 182, 0.1), transparent 28%),
+    var(--cp-background);
+  color: var(--cp-foreground);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.cp-screen {
+  min-height: calc(var(--cp-vh) - var(--cp-safe-top));
+}
+
+.cp-scroll {
+  overscroll-behavior-y: contain;
+  scrollbar-width: none;
+}
+
+.cp-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.cp-press {
+  transition: transform 150ms ease, opacity 150ms ease;
+}
+
+.cp-press:active {
+  transform: scale(0.992);
+}
+
+.cp-fade-in {
+  animation: cp-fade-in 180ms ease;
+}
+
+.cp-slide-up {
+  animation: cp-slide-up 180ms ease;
+}
+
+@keyframes cp-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cp-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
